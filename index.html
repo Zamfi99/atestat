@@ -1,0 +1,1921 @@
+<!DOCTYPE html>
+<html lang="ro" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Joc de sah</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  </head>
+  <style media="screen">
+    .col-md-1 {
+      height: 70px;
+      display: -webkit-flex; /* Safari */
+      -webkit-align-items: center; /* Safari 7.0+ */
+      display: flex;
+      align-items: center;
+    }
+    .inchis {
+      background-color: #9f7119;
+    }
+    .deschis {
+      background-color: #debf83;
+    }
+  </style>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div v-if="this.rand == 1" style="text-align: center; margin-bottom: 10%;">
+          <h2>Randul jucatorului in alb.</h2>
+        </div>
+        <div v-if="this.rand == 2" style="text-align: center; margin-bottom: 10%;">
+          <h2>Randul jucatorului in negru.</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-2"></div>
+
+          <div class="col-md-1 deschis" id="col11" @click="verifica(1, 1);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col12" @click="verifica(1, 2);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col13" @click="verifica(1, 3);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col14" @click="verifica(1, 4);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col15" @click="verifica(1, 5);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col16" @click="verifica(1, 6);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col17" @click="verifica(1, 7);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col18" @click="verifica(1, 8);">
+
+          </div>
+          <div class="col-md-2"></div>
+        </div> <!-- RAND 1 -->
+        <div class="row">
+          <div class="col-md-2"></div>
+
+          <div class="col-md-1 inchis" id="col21" @click="verifica(2, 1);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col22" @click="verifica(2, 2);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col23" @click="verifica(2, 3);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col24" @click="verifica(2, 4);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col25" @click="verifica(2, 5);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col26" @click="verifica(2, 6);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col27" @click="verifica(2, 7);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col28" @click="verifica(2, 8);">
+
+          </div>
+          <div class="col-md-2"></div>
+        </div> <!-- RAND 2 -->
+        <div class="row">
+          <div class="col-md-2"></div>
+
+          <div class="col-md-1 deschis" id="col31" @click="verifica(3, 1);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col32" @click="verifica(3, 2);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col33" @click="verifica(3, 3);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col34" @click="verifica(3, 4);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col35" @click="verifica(3, 5);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col36" @click="verifica(3, 6);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col37" @click="verifica(3, 7);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col38" @click="verifica(3, 8);">
+
+          </div>
+          <div class="col-md-2"></div>
+        </div> <!-- RAND 3 -->
+        <div class="row">
+          <div class="col-md-2"></div>
+
+          <div class="col-md-1 inchis" id="col41" @click="verifica(4, 1);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col42" @click="verifica(4, 2);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col43" @click="verifica(4, 3);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col44" @click="verifica(4, 4);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col45" @click="verifica(4, 5);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col46" @click="verifica(4, 6);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col47" @click="verifica(4, 7);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col48" @click="verifica(4, 8);">
+
+          </div>
+          <div class="col-md-2"></div>
+        </div> <!-- RAND 4 -->
+        <div class="row">
+          <div class="col-md-2"></div>
+
+          <div class="col-md-1 deschis" id="col51" @click="verifica(5, 1);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col52" @click="verifica(5, 2);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col53" @click="verifica(5, 3);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col54" @click="verifica(5, 4);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col55" @click="verifica(5, 5);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col56" @click="verifica(5, 6);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col57" @click="verifica(5, 7);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col58" @click="verifica(5, 8);">
+
+          </div>
+          <div class="col-md-2"></div>
+        </div> <!-- RAND 5 -->
+        <div class="row">
+          <div class="col-md-2"></div>
+
+          <div class="col-md-1 inchis" id="col61" @click="verifica(6, 1);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col62" @click="verifica(6, 2);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col63" @click="verifica(6, 3);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col64" @click="verifica(6, 4);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col65" @click="verifica(6, 5);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col66" @click="verifica(6, 6);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col67" @click="verifica(6, 7);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col68" @click="verifica(6, 8);">
+
+          </div>
+          <div class="col-md-2"></div>
+        </div> <!-- RAND 6 -->
+        <div class="row">
+          <div class="col-md-2"></div>
+
+          <div class="col-md-1 deschis" id="col71" @click="verifica(7, 1);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col72" @click="verifica(7, 2);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col73" @click="verifica(7, 3);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col74" @click="verifica(7, 4);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col75" @click="verifica(7, 5);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col76" @click="verifica(7, 6);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col77" @click="verifica(7, 7);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col78" @click="verifica(7, 8);">
+
+          </div>
+          <div class="col-md-2"></div>
+        </div> <!-- RAND 7 -->
+        <div class="row">
+          <div class="col-md-2"></div>
+
+          <div class="col-md-1 inchis" id="col81" @click="verifica(8, 1);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col82" @click="verifica(8, 2);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col83" @click="verifica(8, 3);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col84" @click="verifica(8, 4);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col85" @click="verifica(8, 5);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col86" @click="verifica(8, 6);">
+
+          </div>
+          <div class="col-md-1 inchis" id="col87" @click="verifica(8, 7);">
+
+          </div>
+          <div class="col-md-1 deschis" id="col88" @click="verifica(8, 8);">
+
+          </div>
+          <div class="col-md-2"></div>
+        </div> <!-- RAND 8 -->
+      </div>
+    </div>
+  </body>
+
+<script type="text/javascript">
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      jucator1: {
+        tura1: {
+          x: 1,
+          y: 1,
+          viata: 1,
+          tip: 'tura',
+        },
+        cal1: {
+          x: 1,
+          y: 2,
+          viata: 1,
+          tip: 'cal',
+        },
+        nebun1: {
+          x: 1,
+          y: 3,
+          viata: 1,
+          tip: 'nebun',
+        },
+        rege: {
+          x: 1,
+          y: 4,
+          viata: 1,
+          tip: 'rege',
+        },
+        regina: {
+          x: 1,
+          y: 5,
+          viata: 1,
+          tip: 'regina',
+        },
+        nebun2: {
+          x: 1,
+          y: 6,
+          viata: 1,
+          tip: 'nebun',
+        },
+        cal2: {
+          x: 1,
+          y: 7,
+          viata: 1,
+          tip: 'cal',
+        },
+        tura2: {
+          x: 1,
+          y: 8,
+          viata: 1,
+          tip: 'tura',
+        },
+        pion1: {
+          x: 2,
+          y: 1,
+          viata: 1,
+          tip: 'pion',
+        },
+        pion2: {
+          x: 2,
+          y: 2,
+          viata: 1,
+          tip: 'pion',
+        },
+        pion3: {
+          x: 2,
+          y: 3,
+          viata: 1,
+          tip: 'pion',
+        },
+        pion4: {
+          x: 2,
+          y: 4,
+          viata: 1,
+          tip: 'pion',
+        },
+        pion5: {
+          x: 2,
+          y: 5,
+          viata: 1,
+          tip: 'pion',
+        },
+        pion6: {
+          x: 2,
+          y: 6,
+          viata: 1,
+          tip: 'pion',
+        },
+        pion7: {
+          x: 2,
+          y: 7,
+          viata: 1,
+          tip: 'pion',
+        },
+        pion8: {
+          x: 2,
+          y: 8,
+          viata: 1,
+          tip: 'pion',
+        },
+      },
+      jucator2: {
+        tura1: {
+          x: 8,
+          y: 1,
+          viata: 1,
+          tip: 'tura',
+        },
+        cal1: {
+          x: 8,
+          y: 2,
+          viata: 1,
+          tip: 'cal',
+        },
+        nebun1: {
+          x: 8,
+          y: 3,
+          viata: 1,
+          tip: 'nebun',
+        },
+        rege: {
+          x: 8,
+          y: 4,
+          viata: 1,
+          tip: 'rege',
+        },
+        regina: {
+          x: 8,
+          y: 5,
+          viata: 1,
+          tip: 'regina',
+        },
+        nebun2: {
+          x: 8,
+          y: 6,
+          viata: 1,
+          tip: 'nebun',
+        },
+        cal2: {
+          x: 8,
+          y: 7,
+          viata: 1,
+          tip: 'cal',
+        },
+        tura2: {
+          x: 8,
+          y: 8,
+          viata: 1,
+          tip: 'tura',
+        },
+        pion1: {
+          x: 7,
+          y: 1,
+          viata: 1,
+          tip: 'pion',
+        },
+        pion2: {
+          x: 7,
+          y: 2,
+          viata: 1,
+          tip: 'pion',
+        },
+        pion3: {
+          x: 7,
+          y: 3,
+          viata: 1,
+          tip: 'pion',
+        },
+        pion4: {
+          x: 7,
+          y: 4,
+          viata: 1,
+          tip: 'pion',
+        },
+        pion5: {
+          x: 7,
+          y: 5,
+          viata: 1,
+          tip: 'pion',
+        },
+        pion6: {
+          x: 7,
+          y: 6,
+          viata: 1,
+          tip: 'pion',
+        },
+        pion7: {
+          x: 7,
+          y: 7,
+          viata: 1,
+          tip: 'pion',
+        },
+        pion8: {
+          x: 7,
+          y: 8,
+          viata: 1,
+          tip: 'pion',
+        },
+      },
+      ales: {
+        x: undefined,
+        y: undefined,
+        tip: '',
+      },
+      tabel: [],
+      rand: 1,
+    },
+    methods: {
+      verifica: function(x, y) {
+        if (this.jucator1.rege.viata == 0)
+        {
+          alert("Jucatorul in negru a castigat!");
+          setTimeout(location.reload(), 5000);
+        }
+        if (this.jucator2.rege.viata == 0)
+        {
+          alert("Jucatorul in alb a castigat!");
+          setTimeout(location.reload(), 5000);
+        }
+        if (this.rand == 1)
+        if (this.ales.x == x && this.ales.y == y)
+        {
+          this.ales.x = undefined;
+          this.ales.y = undefined;
+          this.ales.tip = '';
+          this.randare();
+        }
+        else if (this.ales.x && this.ales.y) {
+          let z = x*10 + y;
+          var h = document.getElementById('col' + z);
+          if (this.tabel[z] != 1 && h.style.opacity == "0.6") {
+            this.tabel[this.ales.x*10+this.ales.y] = 0;
+            this.jucator1[this.ales.tip].x = x;
+            this.jucator1[this.ales.tip].y = y;
+            if (this.tabel[z] == 2)
+            {
+              let a = x;
+              let b = y;
+              if (this.jucator2.tura1.x == a && this.jucator2.tura1.y == b && this.jucator2.tura1.viata == 1)
+              {
+                this.jucator2.tura1.viata = 0;
+              }
+              if (this.jucator2.cal1.x == a && this.jucator2.cal1.y == b && this.jucator2.cal1.viata == 1)
+              {
+                this.jucator2.cal1.viata = 0;
+              }
+              if (this.jucator2.nebun1.x == a && this.jucator2.nebun1.y == b && this.jucator2.nebun1.viata == 1)
+              {
+                this.jucator2.nebun1.viata = 0;
+              }
+              if (this.jucator2.rege.x == a && this.jucator2.rege.y == b && this.jucator2.rege.viata == 1)
+              {
+                this.jucator2.rege.viata = 0;
+              }
+              if (this.jucator2.regina.x == a && this.jucator2.regina.y == b && this.jucator2.regina.viata == 1)
+              {
+                this.jucator2.regina.viata = 0;
+              }
+              if (this.jucator2.nebun2.x == a && this.jucator2.nebun2.y == b && this.jucator2.nebun2.viata == 1)
+              {
+                this.jucator2.nebun2.viata = 0;
+              }
+              if (this.jucator2.cal2.x == a && this.jucator2.cal2.y == b && this.jucator2.cal2.viata == 1)
+              {
+                this.jucator2.cal2.viata = 0;
+              }
+              if (this.jucator2.tura2.x == a && this.jucator2.tura2.y == b && this.jucator2.tura2.viata == 1)
+              {
+                this.jucator2.tura2.viata = 0;
+              }
+              if (this.jucator2.pion1.x == a && this.jucator2.pion1.y == b && this.jucator2.pion1.viata == 1)
+              {
+                this.jucator2.pion1.viata = 0;
+              }
+              if (this.jucator2.pion2.x == a && this.jucator2.pion2.y == b && this.jucator2.pion2.viata == 1)
+              {
+                this.jucator2.pion2.viata = 0;
+              }
+              if (this.jucator2.pion3.x == a && this.jucator2.pion3.y == b && this.jucator2.pion3.viata == 1)
+              {
+                this.jucator2.pion3.viata = 0;
+              }
+              if (this.jucator2.pion4.x == a && this.jucator2.pion4.y == b && this.jucator2.pion4.viata == 1)
+              {
+                this.jucator2.pion4.viata = 0;
+              }
+              if (this.jucator2.pion5.x == a && this.jucator2.pion5.y == b && this.jucator2.pion5.viata == 1)
+              {
+                this.jucator2.pion5.viata = 0;
+              }
+              if (this.jucator2.pion6.x == a && this.jucator2.pion6.y == b && this.jucator2.pion6.viata == 1)
+              {
+                this.jucator2.pion6.viata = 0;
+              }
+              if (this.jucator2.pion7.x == a && this.jucator2.pion7.y == b && this.jucator2.pion7.viata == 1)
+              {
+                this.jucator2.pion7.viata = 0;
+              }
+              if (this.jucator2.pion8.x == a && this.jucator2.pion8.y == b && this.jucator2.pion8.viata == 1)
+              {
+                this.jucator2.pion8.viata = 0;
+              }
+            }
+            this.tabel[z] = 1;
+            this.rand = 2;
+          }
+            this.ales.x = undefined;
+            this.ales.y = undefined;
+            this.ales.tip = '';
+            this.randare();
+        }
+        else {
+        if (this.jucator1.tura1.x == x && this.jucator1.tura1.y == y && this.jucator1.tura1.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "tura1";
+          this.randare();
+          this.arata("tura", x, y);
+        }
+        if (this.jucator1.cal1.x == x && this.jucator1.cal1.y == y && this.jucator1.cal1.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "cal1";
+          this.randare();
+          this.arata("cal", x, y);
+        }
+        if (this.jucator1.nebun1.x == x && this.jucator1.nebun1.y == y && this.jucator1.nebun1.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "nebun1";
+          this.randare();
+          this.arata("nebun", x, y);
+        }
+        if (this.jucator1.rege.x == x && this.jucator1.rege.y == y && this.jucator1.rege.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "rege";
+          this.randare();
+          this.arata("rege", x, y);
+        }
+        if (this.jucator1.regina.x == x && this.jucator1.regina.y == y && this.jucator1.regina.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "regina";
+          this.randare();
+          this.arata("regina", x, y);
+        }
+        if (this.jucator1.nebun2.x == x && this.jucator1.nebun2.y == y && this.jucator1.nebun2.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "nebun2";
+          this.randare();
+          this.arata("nebun", x, y);
+        }
+        if (this.jucator1.cal2.x == x && this.jucator1.cal2.y == y && this.jucator1.cal2.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "cal2";
+          this.randare();
+          this.arata("cal", x, y);
+        }
+        if (this.jucator1.tura2.x == x && this.jucator1.tura2.y == y && this.jucator1.tura2.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "tura2";
+          this.randare();
+          this.arata("tura", x, y);
+        }
+        if (this.jucator1.pion1.x == x && this.jucator1.pion1.y == y && this.jucator1.pion1.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "pion1";
+          this.randare();
+          this.arata("pion1", x, y);
+        }
+        if (this.jucator1.pion2.x == x && this.jucator1.pion2.y == y && this.jucator1.pion2.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "pion2";
+          this.randare();
+          this.arata("pion1", x, y);
+        }
+        if (this.jucator1.pion3.x == x && this.jucator1.pion3.y == y && this.jucator1.pion3.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "pion3";
+          this.randare();
+          this.arata("pion1", x, y);
+        }
+        if (this.jucator1.pion4.x == x && this.jucator1.pion4.y == y && this.jucator1.pion4.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "pion4";
+          this.randare();
+          this.arata("pion1", x, y);
+        }
+        if (this.jucator1.pion5.x == x && this.jucator1.pion5.y == y && this.jucator1.pion5.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "pion5";
+          this.randare();
+          this.arata("pion1", x, y);
+        }
+        if (this.jucator1.pion6.x == x && this.jucator1.pion6.y == y && this.jucator1.pion6.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "pion6";
+          this.randare();
+          this.arata("pion1", x, y);
+        }
+        if (this.jucator1.pion7.x == x && this.jucator1.pion7.y == y && this.jucator1.pion7.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "pion7";
+          this.randare();
+          this.arata("pion1", x, y);
+        }
+        if (this.jucator1.pion8.x == x && this.jucator1.pion8.y == y && this.jucator1.pion8.viata == 1)
+        {
+          this.ales.x = x;
+          this.ales.y = y;
+          this.ales.tip = "pion8";
+          this.randare();
+          this.arata("pion1", x, y);
+        }
+      }
+      else {
+        if (this.ales.x == x && this.ales.y == y)
+        {
+          this.ales.x = undefined;
+          this.ales.y = undefined;
+          this.ales.tip = '';
+          this.randare();
+        }
+        else if (this.ales.x && this.ales.y)
+        {
+          let z = x*10 + y;
+          var h = document.getElementById('col' + z);
+          if (this.tabel[z] != 2 && h.style.opacity == "0.6") {
+            this.tabel[this.ales.x*10 + this.ales.y] = 0;
+            this.jucator2[this.ales.tip].x = x;
+            this.jucator2[this.ales.tip].y = y;
+            if (this.tabel[z] == 1)
+            {
+              let a = x;
+              let b = y;
+              if (this.jucator1.tura1.x == a && this.jucator1.tura1.y == b && this.jucator1.tura1.viata == 1)
+              {
+                this.jucator1.tura1.viata = 0;
+              }
+              if (this.jucator1.cal1.x == a && this.jucator1.cal1.y == b && this.jucator1.cal1.viata == 1)
+              {
+                this.jucator1.cal1.viata = 0;
+              }
+              if (this.jucator1.nebun1.x == a && this.jucator1.nebun1.y == b && this.jucator1.nebun1.viata == 1)
+              {
+                this.jucator1.nebun1.viata = 0;
+              }
+              if (this.jucator1.rege.x == a && this.jucator1.rege.y == b && this.jucator1.rege.viata == 1)
+              {
+                this.jucator1.rege.viata = 0;
+              }
+              if (this.jucator1.regina.x == a && this.jucator1.regina.y == b && this.jucator1.regina.viata == 1)
+              {
+                this.jucator1.regina.viata = 0;
+              }
+              if (this.jucator1.nebun2.x == a && this.jucator1.nebun2.y == b && this.jucator1.nebun2.viata == 1)
+              {
+                this.jucator1.nebun2.viata = 0;
+              }
+              if (this.jucator1.cal2.x == a && this.jucator1.cal2.y == b && this.jucator1.cal2.viata == 1)
+              {
+                this.jucator1.cal2.viata = 0;
+              }
+              if (this.jucator1.tura2.x == a && this.jucator1.tura2.y == b && this.jucator1.tura2.viata == 1)
+              {
+                this.jucator1.tura2.viata = 0;
+              }
+              if (this.jucator1.pion1.x == a && this.jucator1.pion1.y == b && this.jucator1.pion1.viata == 1)
+              {
+                this.jucator1.pion1.viata = 0;
+              }
+              if (this.jucator1.pion2.x == a && this.jucator1.pion2.y == b && this.jucator1.pion2.viata == 1)
+              {
+                this.jucator1.pion2.viata = 0;
+              }
+              if (this.jucator1.pion3.x == a && this.jucator1.pion3.y == b && this.jucator1.pion3.viata == 1)
+              {
+                this.jucator1.pion3.viata = 0;
+              }
+              if (this.jucator1.pion4.x == a && this.jucator1.pion4.y == b && this.jucator1.pion4.viata == 1)
+              {
+                this.jucator1.pion4.viata = 0;
+              }
+              if (this.jucator1.pion5.x == a && this.jucator1.pion5.y == b && this.jucator1.pion5.viata == 1)
+              {
+                this.jucator1.pion5.viata = 0;
+              }
+              if (this.jucator1.pion6.x == a && this.jucator1.pion6.y == b && this.jucator1.pion6.viata == 1)
+              {
+                this.jucator1.pion6.viata = 0;
+              }
+              if (this.jucator1.pion7.x == a && this.jucator1.pion7.y == b && this.jucator1.pion7.viata == 1)
+              {
+                this.jucator1.pion7.viata = 0;
+              }
+              if (this.jucator1.pion8.x == a && this.jucator1.pion8.y == b && this.jucator1.pion8.viata == 1)
+              {
+                this.jucator1.pion8.viata = 0;
+              }
+            }
+            this.rand = 1;
+            this.tabel[z] = 2;
+          }
+          this.ales.x = undefined;
+          this.ales.y = undefined;
+          this.ales.tip = '';
+          this.randare();
+        }
+        else {
+          if (this.jucator2.tura1.x == x && this.jucator2.tura1.y == y && this.jucator2.tura1.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "tura1";
+            this.randare();
+            this.arata2("tura", x, y);
+          }
+          if (this.jucator2.cal1.x == x && this.jucator2.cal1.y == y && this.jucator2.cal1.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "cal1";
+            this.randare();
+            this.arata2("cal", x, y);
+          }
+          if (this.jucator2.nebun1.x == x && this.jucator2.nebun1.y == y && this.jucator2.nebun1.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "nebun1";
+            this.randare();
+            this.arata2("nebun", x, y);
+          }
+          if (this.jucator2.rege.x == x && this.jucator2.rege.y == y && this.jucator2.rege.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "rege";
+            this.randare();
+            this.arata2("rege", x, y);
+          }
+          if (this.jucator2.regina.x == x && this.jucator2.regina.y == y && this.jucator2.regina.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "regina";
+            this.randare();
+            this.arata2("regina", x ,y);
+          }
+          if (this.jucator2.nebun2.x == x && this.jucator2.nebun2.y == y && this.jucator2.nebun2.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "nebun2";
+            this.randare();
+            this.arata2("nebun", x, y);
+          }
+          if (this.jucator2.cal2.x == x && this.jucator2.cal2.y == y && this.jucator2.cal2.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "cal2";
+            this.randare();
+            this.arata2("cal", x, y);
+          }
+          if (this.jucator2.tura2.x == x && this.jucator2.tura2.y == y && this.jucator2.tura2.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "tura2";
+            this.randare();
+            this.arata2("tura", x, y);
+          }
+          if (this.jucator2.pion1.x == x && this.jucator2.pion1.y == y && this.jucator2.pion1.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "pion1";
+            this.randare();
+            this.arata2("pion", x, y);
+          }
+          if (this.jucator2.pion2.x == x && this.jucator2.pion2.y == y && this.jucator2.pion2.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "pion2";
+            this.randare();
+            this.arata2("pion", x, y);
+          }
+          if (this.jucator2.pion3.x == x && this.jucator2.pion3.y == y && this.jucator2.pion3.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "pion3";
+            this.randare();
+            this.arata2("pion", x, y);
+          }
+          if (this.jucator2.pion4.x == x && this.jucator2.pion4.y == y && this.jucator2.pion4.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "pion4";
+            this.randare();
+            this.arata2("pion", x, y);
+          }
+          if (this.jucator2.pion5.x == x && this.jucator2.pion5.y == y && this.jucator2.pion5.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "pion5";
+            this.randare();
+            this.arata2("pion", x, y);
+          }
+          if (this.jucator2.pion6.x == x && this.jucator2.pion6.y == y && this.jucator2.pion6.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "pion6";
+            this.randare();
+            this.arata2("pion", x, y);
+          }
+          if (this.jucator2.pion7.x == x && this.jucator2.pion7.y == y && this.jucator2.pion7.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "pion7";
+            this.randare();
+            this.arata2("pion", x, y);
+          }
+          if (this.jucator2.pion8.x == x && this.jucator2.pion8.y == y && this.jucator2.pion8.viata == 1)
+          {
+            this.ales.x = x;
+            this.ales.y = y;
+            this.ales.tip = "pion8";
+            this.randare();
+            this.arata2("pion", x, y);
+          }
+        }
+      }
+      },
+      randare: function() {
+
+        //CLEAR
+        let i, j;
+        for (i=1; i<=8; i++)
+          for (j=1; j<=8; j++)
+          {
+            let x = i*10+j;
+            this.tabel[x] = 0;
+            var y = document.getElementById("col" + x);
+            y.innerHTML = "";
+            y.style.opacity = "1";
+          }
+
+        //JUCATOR 1
+        if (this.jucator1.tura1.viata == 1) {
+          let x = this.jucator1.tura1.x*10+this.jucator1.tura1.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/tura1.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.cal1.viata == 1) {
+          let x = this.jucator1.cal1.x*10 + this.jucator1.cal1.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/cal1.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.nebun1.viata == 1) {
+          let x = this.jucator1.nebun1.x*10 + this.jucator1.nebun1.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/nebun1.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.rege.viata == 1) {
+          let x = this.jucator1.rege.x*10 + this.jucator1.rege.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/rege.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.regina.viata == 1) {
+          let x = this.jucator1.regina.x*10 + this.jucator1.regina.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/regina.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.nebun2.viata == 1) {
+          let x = this.jucator1.nebun2.x*10 + this.jucator1.nebun2.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/nebun2.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.cal2.viata == 1) {
+          let x = this.jucator1.cal2.x*10 + this.jucator1.cal2.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/cal2.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.tura2.viata == 1) {
+          let x = this.jucator1.tura2.x*10 + this.jucator1.tura2.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/tura2.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.pion1.viata == 1) {
+          let x = this.jucator1.pion1.x*10 + this.jucator1.pion1.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/pion.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.pion2.viata == 1) {
+          let x = this.jucator1.pion2.x*10 + this.jucator1.pion2.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/pion.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.pion3.viata == 1) {
+          let x = this.jucator1.pion3.x*10 + this.jucator1.pion3.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/pion.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.pion4.viata == 1) {
+          let x = this.jucator1.pion4.x*10 + this.jucator1.pion4.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/pion.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.pion5.viata == 1) {
+          let x = this.jucator1.pion5.x*10 + this.jucator1.pion5.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/pion.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.pion6.viata == 1) {
+          let x = this.jucator1.pion6.x*10 + this.jucator1.pion6.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/pion.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.pion7.viata == 1) {
+          let x = this.jucator1.pion7.x*10 + this.jucator1.pion7.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/pion.png\">";
+          this.tabel[x] = "1";
+        }
+        if (this.jucator1.pion8.viata == 1) {
+          let x = this.jucator1.pion8.x*10 + this.jucator1.pion8.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator1/pion.png\">";
+          this.tabel[x] = "1";
+        }
+
+        //JUCATOR 2
+
+        if (this.jucator2.tura1.viata == 1) {
+          let x = this.jucator2.tura1.x*10+this.jucator2.tura1.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/tura.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.cal1.viata == 1) {
+          let x = this.jucator2.cal1.x*10 + this.jucator2.cal1.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/cal1.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.nebun1.viata == 1) {
+          let x = this.jucator2.nebun1.x*10 + this.jucator2.nebun1.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/nebun.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.rege.viata == 1) {
+          let x = this.jucator2.rege.x*10 + this.jucator2.rege.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/rege.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.regina.viata == 1) {
+          let x = this.jucator2.regina.x*10 + this.jucator2.regina.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/regina.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.nebun2.viata == 1) {
+          let x = this.jucator2.nebun2.x*10 + this.jucator2.nebun2.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/nebun.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.cal2.viata == 1) {
+          let x = this.jucator2.cal2.x*10 + this.jucator2.cal2.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/cal2.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.tura2.viata == 1) {
+          let x = this.jucator2.tura2.x*10 + this.jucator2.tura2.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/tura.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.pion1.viata == 1) {
+          let x = this.jucator2.pion1.x*10 + this.jucator2.pion1.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/pion.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.pion2.viata == 1) {
+          let x = this.jucator2.pion2.x*10 + this.jucator2.pion2.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/pion.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.pion3.viata == 1) {
+          let x = this.jucator2.pion3.x*10 + this.jucator2.pion3.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/pion.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.pion4.viata == 1) {
+          let x = this.jucator2.pion4.x*10 + this.jucator2.pion4.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/pion.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.pion5.viata == 1) {
+          let x = this.jucator2.pion5.x*10 + this.jucator2.pion5.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/pion.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.pion6.viata == 1) {
+          let x = this.jucator2.pion6.x*10 + this.jucator2.pion6.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/pion.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.pion7.viata == 1) {
+          let x = this.jucator2.pion7.x*10 + this.jucator2.pion7.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/pion.png\">";
+          this.tabel[x] = "2";
+        }
+        if (this.jucator2.pion8.viata == 1) {
+          let x = this.jucator2.pion8.x*10 + this.jucator2.pion8.y;
+          var y = document.getElementById("col" + x);
+          y.innerHTML = "<img src=\"./img/jucator2/pion.png\">";
+          this.tabel[x] = "2";
+        }
+      },
+      arata: function(tip, x, y) {
+        var i;
+        if (tip == "tura")
+        {
+          for (i=x-1; i>0; i--)
+          {
+            let z = i*10 + y;
+            if (this.tabel[z] == 1) i=0;
+            else if (this.tabel[z] == 2) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              i=0;
+            }
+            else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          }
+          for (i=x+1; i<=8; i++)
+          {
+            var z = i*10 + y;
+            if (this.tabel[z] == 1) i=9;
+            else if (this.tabel[z] == 2) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              i=9;
+            }
+            else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          }
+          for (i=y-1; i>0; i--)
+          {
+            let z = x*10 + i;
+            if (this.tabel[z] == 1) i=0;
+            else if (this.tabel[z] == 2) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              i=0;
+            }
+            else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          }
+          for (i=y+1; i<=8; i++)
+          {
+            let z = x*10 + i;
+            if (this.tabel[z] == 1) i=9;
+            else if (this.tabel[z] == 2) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              i=9;
+            }
+            else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          }
+        }
+        if (tip == "cal")
+        {
+          if (x+2<=8 && y+1 <=8 && this.tabel[(x+2)*10 + y+1] != 1)
+            {
+              let z = (x+2)*10 + y+1;
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+            }
+          if (x+2<=8 && y-1 >=1 && this.tabel[(x+2)*10 + y-1] != 1)
+            {
+              let z = (x+2)*10 + y-1;
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+            }
+          if (x+1<=8 && y+2 <=8 && this.tabel[(x+1)*10 + y+2] != 1)
+            {
+              let z = (x+1)*10 + y+2;
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+            }
+          if (x-1>=1 && y+2 <=8 && this.tabel[(x-1)*10 + y+2] != 1)
+            {
+              let z = (x-1)*10 + y+2;
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+            }
+          if (x-2>=1 && y+1 <=8 && this.tabel[(x-2)*10 + y+1] != 1)
+            {
+              let z = (x-2)*10 + y+1;
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+            }
+          if (x-2>=1 && y-1>=1 && this.tabel[(x-2)*10 + y-1] != 1)
+            {
+              let z = (x-2)*10 + y-1;
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+            }
+          if (x-1>=1 && y-2>=1 && this.tabel[(x-1)*10 + y-2] != 1)
+            {
+              let z = (x-1)*10 + y-2;
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+            }
+          if (x+1<=8 && y-2>=1 && this.tabel[(x+1)*10 + y-2] != 1)
+            {
+              let z = (x+1)*10 + y-2;
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+            }
+        }
+        if (tip == "nebun")
+        {
+          let a, b;
+          a=x+1; b=y+1;
+          while (a<=8 && b<=8)
+            {
+              let z = a*10 +b;
+              if (this.tabel[z] == 1) a = 9;
+              else if (this.tabel[z] == 2) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a = 9;
+            }
+            else {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a+=1; b+=1;
+            }
+          }
+          a=x+1; b=y-1;
+          while (a<=8 && b>=1)
+            {
+              let z = a*10 + b;
+              if (this.tabel[z] == 1) a = 9;
+              else if (this.tabel[z] == 2) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a = 9;
+            }
+            else {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a+=1; b-=1;
+            }
+          }
+          a=x-1; b=y+1;
+          while (a>=1 && b<=8)
+            {
+              let z = a*10 + b;
+              if (this.tabel[z] == 1) b = 9;
+              else if (this.tabel[z] == 2) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              b = 9;
+            }
+            else {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a-=1; b+=1;
+            }
+          }
+          a=x-1; b=y-1;
+          while (a>=1 && b>=1)
+            {
+              let z = a*10 + b;
+              if (this.tabel[z] == 1) a = 0;
+              else if (this.tabel[z] == 2) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a = 0;
+            }
+            else {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a-=1; b-=1;
+            }
+          }
+        }
+        if (tip == "rege")
+        {
+          if (x+1<=8 && this.tabel[(x+1)*10 + y] != 1)
+          {
+            let z = (x+1)*10 + y;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          if (x+1<=8 && y+1<=8 && this.tabel[(x+1)*10 + y+1] != 1)
+          {
+            let z = (x+1)*10 + y+1;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          if (y+1<=8 && this.tabel[x*10 + y+1] != 1)
+          {
+            let z = x*10 + y+1;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          if (x-1>=1 && y+1<=8 && this.tabel[(x-1)*10 + y+1] !=1)
+          {
+            let z = (x-1)*10 + y+1;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          if (x-1>=1 && this.tabel[(x-1)*10 + y] != 1)
+          {
+            let z = (x-1)*10 + y;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          if (x-1>=1 && y-1>=1 && this.tabel[(x-1)*10 + y-1] != 1)
+          {
+            let z = (x-1)*10 + y-1;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          if (y-1>=1 && this.tabel[x*10 + y-1] != 1)
+          {
+            let z = (x)*10 + y-1;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          if (x+1<=8 && y-1>=1 && this.tabel[(x+1)*10 + y-1] != 1)
+          {
+            let z = (x+1)*10 + y-1;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+        }
+        if (tip == "regina")
+        {
+          let a, b;
+          a=x+1; b=y+1;
+          while (a<=8 && b<=8 && this.tabel[(a)*10 + b] != 1)
+            {
+              let z = a*10 +b;
+              if (this.tabel[z] == 1) a = 9;
+              else if (this.tabel[z] == 2) {
+                var h = document.getElementById("col" + z);
+                h.style.opacity = "0.6";
+                a = 9;
+              }
+              else {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a+=1; b+=1;
+            }
+          }
+          a=x+1; b=y-1;
+          while (a<=8 && b>=1 && this.tabel[a*10 + b] != 1)
+            {
+              let z = a*10 + b;
+              if (this.tabel[z] == 1) a = 9;
+              else if (this.tabel[z] == 2) {
+                var h = document.getElementById("col" + z);
+                h.style.opacity = "0.6";
+                a = 9;
+              }
+              else {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a+=1; b-=1;
+              }
+            }
+          a=x-1; b=y+1;
+          while (a>=1 && b<=8 && this.tabel[a*10+b] != 1)
+            {
+              let z = a*10 + b;
+              if (this.tabel[z] == 1) a = 0;
+              else if (this.tabel[z] == 2) {
+                var h = document.getElementById("col" + z);
+                h.style.opacity = "0.6";
+                a = 0;
+              }
+              else {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a-=1; b+=1;
+            }
+          }
+          a=x-1; b=y-1;
+          while (a>=1 && b>=1 && this.tabel[a*10+b] != 1)
+            {
+              let z = a*10 + b;
+              if (this.tabel[z] == 1) a = 0;
+              else if (this.tabel[z] == 2) {
+                var h = document.getElementById("col" + z);
+                h.style.opacity = "0.6";
+                a = 0;
+              }
+              else {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a-=1; b-=1;
+            }
+          }
+            for (i=x-1; i>0; i--)
+            {
+              let z = i*10 + y;
+              if (this.tabel[z] == 1) i=0;
+              else if (this.tabel[z] == 2) {
+                var h = document.getElementById("col" + z);
+                h.style.opacity = "0.6";
+                i=0;
+              }
+              else {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+            }
+            }
+            for (i=x+1; i<=8; i++)
+            {
+              var z = i*10 + y;
+              if (this.tabel[z] == 1) i=9;
+              else if (this.tabel[z] == 2) {
+                var h = document.getElementById("col" + z);
+                h.style.opacity = "0.6";
+                i=9;
+              }
+              else {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+            }
+            }
+            for (i=y-1; i>0; i--)
+            {
+              let z = x*10 + i;
+              if (this.tabel[z] == 1) i=0;
+              else if (this.tabel[z] == 2) {
+                var h = document.getElementById("col" + z);
+                h.style.opacity = "0.6";
+                i=0;
+              }
+              else {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+            }
+            }
+            for (i=y+1; i<=8; i++)
+            {
+              let z = x*10 + i;
+              if (this.tabel[z] == 1) i=9;
+              else if (this.tabel[z] == 2) {
+                var h = document.getElementById("col" + z);
+                h.style.opacity = "0.6";
+                i=9;
+              }
+              else {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+            }
+            }
+        }
+        if (tip == "pion1")
+        {
+          if (x+1<=8 && this.tabel[(x+1)*10+y] == 0)
+          {
+            let z = (x+1)*10 + y;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          if (x+1<=8 && y+1<=8 && this.tabel[(x+1)*10 + y+1] == 2)
+          {
+            let z = (x+1)*10 + y+1;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          if (x+1<=8 && y-1>=1 && this.tabel[(x+1)*10 + y-1] == 2)
+          {
+            let z = (x+1)*10 + y-1;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          if (x==2 && this.tabel[(x+1)*10 + y] == 0 && this.tabel[(x+2)*10 + y] == 0)
+          {
+            let z = (x+2)*10 + y;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+        }
+      },
+    arata2: function(tip, x, y) {
+      var i;
+      if (tip == "tura")
+      {
+        for (i=x-1; i>0; i--)
+        {
+          let z = i*10 + y;
+          if (this.tabel[z] == 2) i=0;
+          else if (this.tabel[z] == 1) {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            i=0;
+          }
+          else {
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+        }
+        for (i=x+1; i<=8; i++)
+        {
+          var z = i*10 + y;
+          if (this.tabel[z] == 2) i=9;
+          else if (this.tabel[z] == 1) {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            i=9;
+          }
+          else {
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+        }
+        for (i=y-1; i>0; i--)
+        {
+          let z = x*10 + i;
+          if (this.tabel[z] == 2) i=0;
+          else if (this.tabel[z] == 1) {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            i=0;
+          }
+          else {
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+        }
+        for (i=y+1; i<=8; i++)
+        {
+          let z = x*10 + i;
+          if (this.tabel[z] == 2) i=9;
+          else if (this.tabel[z] == 1) {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            i=9;
+          }
+          else {
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+        }
+      }
+      if (tip == "cal")
+      {
+        if (x+2<=8 && y+1 <=8 && this.tabel[(x+2)*10 + y+1] != 2)
+          {
+            let z = (x+2)*10 + y+1;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+        if (x+2<=8 && y-1 >=1 && this.tabel[(x+2)*10 + y-1] != 2)
+          {
+            let z = (x+2)*10 + y-1;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+        if (x+1<=8 && y+2 <=8 && this.tabel[(x+1)*10 + y+2] != 2)
+          {
+            let z = (x+1)*10 + y+2;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+        if (x-1>=1 && y+2 <=8 && this.tabel[(x-1)*10 + y+2] != 2)
+          {
+            let z = (x-1)*10 + y+2;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+        if (x-2>=1 && y+1 <=8 && this.tabel[(x-2)*10 + y+1] != 2)
+          {
+            let z = (x-2)*10 + y+1;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+        if (x-2>=1 && y-1>=1 && this.tabel[(x-2)*10 + y-1] != 2)
+          {
+            let z = (x-2)*10 + y-1;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+        if (x-1>=1 && y-2>=1 && this.tabel[(x-1)*10 + y-2] != 2)
+          {
+            let z = (x-1)*10 + y-2;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+        if (x+1<=8 && y-2>=1 && this.tabel[(x+1)*10 + y-2] != 2)
+          {
+            let z = (x+1)*10 + y-2;
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+      }
+      if (tip == "nebun")
+      {
+        let a, b;
+        a=x+1; b=y+1;
+        while (a<=8 && b<=8)
+          {
+            let z = a*10 +b;
+            if (this.tabel[z] == 2) a = 9;
+            else if (this.tabel[z] == 1) {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            a = 9;
+          }
+          else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            a+=1; b+=1;
+          }
+        }
+        a=x+1; b=y-1;
+        while (a<=8 && b>=1)
+          {
+            let z = a*10 + b;
+            if (this.tabel[z] == 2) a = 9;
+            else if (this.tabel[z] == 1) {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            a = 9;
+          }
+          else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            a+=1; b-=1;
+          }
+        }
+        a=x-1; b=y+1;
+        while (a>=1 && b<=8)
+          {
+            let z = a*10 + b;
+            if (this.tabel[z] == 2) b = 9;
+            else if (this.tabel[z] == 1) {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            b = 9;
+          }
+          else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            a-=1; b+=1;
+          }
+        }
+        a=x-1; b=y-1;
+        while (a>=1 && b>=1)
+          {
+            let z = a*10 + b;
+            if (this.tabel[z] == 2) a = 0;
+            else if (this.tabel[z] == 1) {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            a = 0;
+          }
+          else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            a-=1; b-=1;
+          }
+        }
+      }
+      if (tip == "rege")
+      {
+        if (x+1<=8 && this.tabel[(x+1)*10 + y] != 2)
+        {
+          let z = (x+1)*10 + y;
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+        if (x+1<=8 && y+1<=8 && this.tabel[(x+1)*10 + y+1] != 2)
+        {
+          let z = (x+1)*10 + y+1;
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+        if (y+1<=8 && this.tabel[x*10 + y+1] != 2)
+        {
+          let z = x*10 + y+1;
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+        if (x-1>=1 && y+1<=8 && this.tabel[(x-1)*10 + y+1] !=2)
+        {
+          let z = (x-1)*10 + y+1;
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+        if (x-1>=1 && this.tabel[(x-1)*10 + y] != 2)
+        {
+          let z = (x-1)*10 + y;
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+        if (x-1>=1 && y-1>=1 && this.tabel[(x-1)*10 + y-1] != 2)
+        {
+          let z = (x-1)*10 + y-1;
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+        if (y-1>=1 && this.tabel[x*10 + y-1] != 2)
+        {
+          let z = (x)*10 + y-1;
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+        if (x+1<=8 && y-1>=1 && this.tabel[(x+1)*10 + y-1] != 2)
+        {
+          let z = (x+1)*10 + y-1;
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+      }
+      if (tip == "regina")
+      {
+        let a, b;
+        a=x+1; b=y+1;
+        while (a<=8 && b<=8 && this.tabel[(a)*10 + b] != 2)
+          {
+            let z = a*10 +b;
+            if (this.tabel[z] == 2) a = 9;
+            else if (this.tabel[z] == 1) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a = 9;
+            }
+            else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            a+=1; b+=1;
+          }
+        }
+        a=x+1; b=y-1;
+        while (a<=8 && b>=1 && this.tabel[a*10 + b] != 2)
+          {
+            let z = a*10 + b;
+            if (this.tabel[z] == 2) a = 9;
+            else if (this.tabel[z] == 1) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a = 9;
+            } else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            a+=1; b-=1;
+          }
+        }
+        a=x-1; b=y+1;
+        while (a>=1 && b<=8 && this.tabel[a*10+b] != 2)
+          {
+            let z = a*10 + b;
+            if (this.tabel[z] == 2) a = 0;
+            else if (this.tabel[z] == 1) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a = 0;
+            }
+            else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            a-=1; b+=1;
+          }
+        }
+        a=x-1; b=y-1;
+        while (a>=1 && b>=1 && this.tabel[a*10+b] != 2)
+          {
+            let z = a*10 + b;
+            if (this.tabel[z] == 2) a = 0;
+            else if (this.tabel[z] == 1) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              a = 0;
+            }
+            else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+            a-=1; b-=1;
+          }
+        }
+          for (i=x-1; i>0; i--)
+          {
+            let z = i*10 + y;
+            if (this.tabel[z] == 2) i=0;
+            else if (this.tabel[z] == 1) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              i=0;
+            }
+            else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          }
+          for (i=x+1; i<=8; i++)
+          {
+            var z = i*10 + y;
+            if (this.tabel[z] == 2) i=9;
+            else if (this.tabel[z] == 1) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              i=9;
+            }
+            else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          }
+          for (i=y-1; i>0; i--)
+          {
+            let z = x*10 + i;
+            if (this.tabel[z] == 2) i=0;
+            else if (this.tabel[z] == 1) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              i=0;
+            }
+            else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          }
+          for (i=y+1; i<=8; i++)
+          {
+            let z = x*10 + i;
+            if (this.tabel[z] == 2) i=9;
+            else if (this.tabel[z] == 1) {
+              var h = document.getElementById("col" + z);
+              h.style.opacity = "0.6";
+              i=9;
+            }
+            else {
+            var h = document.getElementById("col" + z);
+            h.style.opacity = "0.6";
+          }
+          }
+      }
+      if (tip == "pion")
+      {
+        if (x-1 >= 1 && this.tabel[(x-1)*10 + y] == 0)
+        {
+          let z = (x-1)*10 + y;
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+        if (x-1 >= 1 && y-1 >= 1 && this.tabel[(x-1)*10 + y - 1] == 1)
+        {
+          let z = (x-1)*10 + y-1;
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+        if (x-1 >= 1 && y+1 <= 8 && this.tabel[(x-1)*10 + y+1] == 1)
+        {
+          let z = (x-1)*10 + y+1;
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+        if (x == 7 && this.tabel[(x-1)*10 + y] == 0 && this.tabel[(x-2)*10 +y] == 0)
+        {
+          let z = (x-2)*10 + y;
+          var h = document.getElementById("col" + z);
+          h.style.opacity = "0.6";
+        }
+      }
+    },
+    },
+    mounted() {
+      this.randare();
+    }
+  });
+
+</script>
+
+</html>
